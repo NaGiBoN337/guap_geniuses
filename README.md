@@ -2,4 +2,3 @@
 
 #### This is a site about Operating Systems
 #### To use it, simply download the file and run it with your browser
-добавлены семейства windows
