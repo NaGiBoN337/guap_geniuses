@@ -50,7 +50,22 @@
 	</tr> 
 </table>
 <h3>Семейство Windows NT:</h3>
-
+<ol>
+     <li>Windows NT 3.1 (1993)</li>
+     <li>Windows NT 3.5 (1994)</li>
+     <ul>
+     	<li>Windows NT 3.5 (1994)</li>
+     	<li>Windows NT 3.5 (1994)</li>
+     	<ul>
+     		<li>Windows NT 3.5 (1994)</li>
+     		<li>Windows NT 3.5 (1994)</li>
+     		<li>Windows NT 3.5 (1994)</li>
+     	</ul>
+     	<li>Windows NT 3.5 (1994)</li>
+     </ul>
+     <li>Windows NT 3.51 (1995)</li>
+     <li>Windows NT 4.0 (1996)</li>
+ </ol>
  <div style="position:fixed;
    left:0px;
    bottom:0px;
