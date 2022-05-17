@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import fake_useragent
-
+import os.path
 
 def get_data(user_music):
     fakeUser = fake_useragent.UserAgent().random
@@ -54,10 +54,18 @@ def download_mp3(name, url=""):
         return "fail"
 
 
+def downloads_music(list):
+
+    if not os.path.exists('music'):
+        os.mkdir("music")
+    for i in list:
+        download_mp3(i["Имя песни"].replace('-',' '), i["Ссылка на mp3"])
+
+def del_music():
+    import shutil
+    shutil.rmtree("music")
 
 
-# get_data("пьяный")
+get_data("пьяный")
 list = read_data_create_src_music()
-for i in list:
-    print(i)
-download_mp3("ntcn",list[0]["Ссылка на mp3"])
+downloads_music(list)
