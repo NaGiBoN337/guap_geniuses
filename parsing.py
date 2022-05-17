@@ -66,6 +66,7 @@ def del_music():
     shutil.rmtree("music")
 
 
-get_data("пьяный")
-list = read_data_create_src_music()
-downloads_music(list)
+def main_down_music(search):
+    get_data(search)
+    list = read_data_create_src_music()
+    downloads_music(list)
