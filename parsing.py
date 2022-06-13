@@ -8,8 +8,7 @@ def get_data(user_music):
     fakeUser = fake_useragent.UserAgent().random
     headers = {'user-agent': fakeUser}
 
-    url = "https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=81ac8cba9f2904c46&q=" + user_music + "&safe=off&cse_tok=AJvRUv2HDYaZ_Sm8MdeBFWcXeEab:1652809194976&lr=&cr=&gl=&filter=0&sort=&as_oq=&as_sitesearch=&exp=csqr,cc&callback=google.search.cse.api10204"
-
+    url = "https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=81ac8cba9f2904c46&q="+ user_music  + "&safe=off&cse_tok=AJvRUv0LrhHhjCAF0McWIZTKQ2MG:1655130776305&lr=&cr=&gl=&filter=0&sort=&as_oq=&as_sitesearch=&exp=csqr,cc&callback=google.search.cse.api16658"
     response = requests.get(url, headers=headers, allow_redirects=True)
 
     text = list(response.text)
@@ -118,9 +117,10 @@ def main_down_music(search):
     list = read_data_create_src_music()
     if not list:
         print("Ошибка поиска")
+        return 1
     else:
         print("Ссылки найдены")
         downloads_music(list)
 
-main_down_music("Морген")
+main_down_music("Привет")
 
