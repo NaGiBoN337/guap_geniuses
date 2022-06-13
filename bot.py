@@ -47,6 +47,8 @@ def i_can(call):
             bot.send_message(call.from_user.id, "Окей, песен будет 3, если захотите изменить напишите /change")
         if call.data == "5":
             bot.send_message(call.from_user.id, "Окей, песен будет 5, если захотите изменить напишите /change")
+        if call.data == "10":
+            bot.send_message(call.from_user.id, "Окей, песен будет 10, если захотите изменить напишите /change")
 
         tm = load_users()
         tm[str(call.from_user.id)] = call.data
