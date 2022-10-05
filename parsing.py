@@ -3,12 +3,40 @@ from bs4 import BeautifulSoup
 import fake_useragent
 import os.path
 
+class mega_shtuka_for_supers_sait():
+    def __init__(self,one,two,tree):
+        self.url = one
+        self.data = {
+            "login": two,
+            "password": tree
+        }
+        self.token_aut = ""
+        self.user_agent ="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36"
+    def autorization(self):
+        headers = {'user-agent': self.user_agent}
+        response = requests.post(self.url, headers=headers, data=self.data, allow_redirects=True)
+        self.token_aut = response.text
+
+    def dima_tablici(self):
+        # with open("dima_file.json", "w", encoding="utf-8") as file:
+        #     file.write(''.join(text))
+
+        headers = {'user-agent': self.user_agent, 'cookie': f'sid={self.token_aut}'}
+        url = "https://saas.saymon.info/node/api/objects/6319ecf3acb514093a79259e"
+        response = requests.get(url, headers=headers)
+        print(response.text)
+
+
+
+
+
+
 
 def get_data(user_music):
     fakeUser = fake_useragent.UserAgent().random
     headers = {'user-agent': fakeUser}
 
-    url = "https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=81ac8cba9f2904c46&q="+ user_music  + "&safe=off&cse_tok=AJvRUv0LrhHhjCAF0McWIZTKQ2MG:1655130776305&lr=&cr=&gl=&filter=0&sort=&as_oq=&as_sitesearch=&exp=csqr,cc&callback=google.search.cse.api16658"
+    url = "https://cse.google.com/cse/element/v1?rsz=filtered_cse&num=10&hl=en&source=gcsc&gss=.com&cselibv=3e1664f444e6eb06&cx=81ac8cba9f2904c46&q=" + user_music + "&safe=off&cse_tok=AJvRUv0LrhHhjCAF0McWIZTKQ2MG:1655130776305&lr=&cr=&gl=&filter=0&sort=&as_oq=&as_sitesearch=&exp=csqr,cc&callback=google.search.cse.api16658"
     response = requests.get(url, headers=headers, allow_redirects=True)
 
     text = list(response.text)
@@ -36,7 +64,7 @@ def download_mp3(name, url=""):
     try:
         fakeUser = fake_useragent.UserAgent().random
         headers = {'user-agent': fakeUser}
-        response = requests.get(url=url,headers=headers)
+        response = requests.get(url=url, headers=headers)
         with open(f'music/{name}.mp3', 'wb') as file:
             file.write(response.content)
         return "OK"
@@ -108,6 +136,7 @@ def read_data_create_src_music():
         })
     return list_music
 
+
 def main_down_music(search):
     del_music()
     print("Удалено")
@@ -122,5 +151,4 @@ def main_down_music(search):
         print("Ссылки найдены")
         downloads_music(list)
 
-#main_down_music("Привет")
-
+# main_down_music("Привет")
